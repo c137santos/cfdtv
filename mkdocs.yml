@@ -1,0 +1,10 @@
+site_name: Portfólio da Clara
+site_url: "https://clarasantos.github.io"
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - toc.integrate
+extra_css:
+  - assets/css/extra.css
