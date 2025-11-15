@@ -1,0 +1,321 @@
+/* ---------------------------------------------------------
+   Código Fonte TV - Identidade Visual (Extra CSS)
+   Paleta: preto / marrom / branco / creme
+   Uso: salvar em assets/css/extra.css e referenciar no mkdocs.yml
+   --------------------------------------------------------- */
+
+/* -------------------------
+   Variáveis de cor e tipografia
+   ------------------------- */
+:root{
+  --cfv-bg: #0b0b0b;        /* preto profundo */
+  --cfv-brown-900: #2b1f16; /* marrom escuro */
+  --cfv-brown-700: #5b4033; /* marrom médio */
+  --cfv-cream: #f3e9dd;     /* creme claro */
+  --cfv-white: #ffffff;     /* branco */
+  --cfv-accent: #a8724a;    /* acento café */
+  --cfv-muted: #bdb3aa;     /* neutro claro */
+  --cfv-card: linear-gradient(180deg, rgba(43,31,22,0.95), rgba(91,64,51,0.95));
+  --cfv-radius: 12px;
+  --cfv-shadow: 0 8px 30px rgba(11,11,11,0.6);
+  --ff-base: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* -------------------------
+   Reset e base
+   ------------------------- */
+html,body {
+  font-family: var(--ff-base);
+  background: var(--cfv-bg);
+  color: var(--cfv-cream);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--cfv-accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Container centralizado */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
+
+/* -------------------------
+   Header / Brand
+   ------------------------- */
+.site-header, header {
+  background: rgba(11,11,11,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+.site-header .container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.brand {
+  display:flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.brand .logo {
+  width:48px;
+  height:48px;
+  border-radius:8px;
+  background: conic-gradient(from 180deg at 50% 50%, var(--cfv-brown-700), var(--cfv-accent));
+  box-shadow: 0 6px 18px rgba(168,114,74,0.18), inset 0 -6px 14px rgba(0,0,0,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--cfv-cream);
+  font-weight:700;
+  font-size:1.05rem;
+}
+.brand .title {
+  font-weight:700;
+  color:var(--cfv-cream);
+  letter-spacing:0.2px;
+}
+.brand .subtitle {
+  font-size:0.85rem;
+  color:var(--cfv-muted);
+}
+
+/* Nav simple */
+.site-nav {
+  display:flex;
+  gap:1rem;
+  align-items:center;
+}
+.site-nav a {
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  color: var(--cfv-cream);
+  font-weight:600;
+  transition: all 160ms ease;
+}
+.site-nav a:hover {
+  background: rgba(168,114,74,0.10);
+  transform: translateY(-1px);
+}
+
+/* -------------------------
+   Hero / Parallax
+   ------------------------- */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cfv-cream);
+  text-shadow: 0 6px 30px rgba(0,0,0,0.7);
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.parallax::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.25), rgba(43,31,22,0.55));
+  z-index:1;
+}
+
+/* Example classes for the three parallax sections */
+.parallax-1 { background-image: url('/images/bg1.jpg'); }
+.parallax-2 { background-image: url('/images/bg2.jpg'); }
+.parallax-3 { background-image: url('/images/bg3.jpg'); }
+
+/* Hero inner content */
+.hero-inner {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding: 3rem 1rem;
+  max-width:960px;
+}
+.hero-inner h1 {
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  margin:0;
+  font-weight:800;
+  line-height:1.02;
+  color:var(--cfv-cream);
+}
+.hero-inner p.lead {
+  margin-top: 0.6rem;
+  color:var(--cfv-muted);
+  font-size:1.05rem;
+}
+
+/* -------------------------
+   Content sections (single page)
+   ------------------------- */
+.home-section {
+  padding: 3.2rem 1rem;
+  max-width: 900px;
+  margin: auto;
+  color: var(--cfv-cream);
+  background: linear-gradient(180deg, rgba(11,11,11,0.0), rgba(11,11,11,0.02));
+}
+
+/* Headings */
+.home-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--cfv-cream);
+  border-left: 4px solid var(--cfv-accent);
+  padding-left: 0.8rem;
+}
+
+/* Subtle paragraphs */
+.home-section p {
+  color: var(--cfv-muted);
+  margin-bottom: 1rem;
+}
+
+/* -------------------------
+   Timeline
+   ------------------------- */
+.timeline {
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(168,114,74,0.18);
+}
+.timeline-item {
+  padding: 0.9rem 0 0.9rem 1rem;
+  position: relative;
+}
+.timeline-item::before{
+  content: "";
+  width:10px;
+  height:10px;
+  background: var(--cfv-accent);
+  border-radius:50%;
+  position:absolute;
+  left:-17px;
+  top: calc(50% - 5px);
+  box-shadow: 0 4px 14px rgba(168,114,74,0.14);
+}
+.timeline-item strong {
+  display:block;
+  color:var(--cfv-cream);
+  font-size:1.05rem;
+}
+
+/* -------------------------
+   Cards / Work items
+   ------------------------- */
+.card {
+  background: var(--cfv-card);
+  border-radius: var(--cfv-radius);
+  padding: 1rem;
+  box-shadow: var(--cfv-shadow);
+  margin-bottom: 1rem;
+  color: var(--cfv-cream);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.card h3 { margin: 0 0 0.35rem 0; font-size: 1.05rem; }
+.card p { color: var(--cfv-muted); margin: 0; font-size:0.96rem; }
+
+/* -------------------------
+   Sources / List styles
+   ------------------------- */
+.sources {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.source-item {
+  background: rgba(255,255,255,0.02);
+  padding: 0.8rem;
+  border-radius: 10px;
+  border-left: 4px solid rgba(168,114,74,0.18);
+}
+.source-item h4 { margin:0 0 0.3rem 0; color:var(--cfv-cream); }
+.source-item p { margin:0; color:var(--cfv-muted); font-size:0.94rem; }
+
+/* -------------------------
+   Buttons
+   ------------------------- */
+.btn {
+  display:inline-block;
+  background: linear-gradient(180deg, var(--cfv-accent), var(--cfv-brown-700));
+  color: var(--cfv-white);
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight:700;
+  border: none;
+  box-shadow: 0 8px 22px rgba(43,31,22,0.35);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  text-decoration:none;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(43,31,22,0.45); }
+
+/* Outline button */
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--cfv-cream);
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.site-footer {
+  padding: 2rem 0;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  color: var(--cfv-muted);
+  text-align:center;
+}
+.site-footer a { color: var(--cfv-muted); }
+
+/* -------------------------
+   Responsividade
+   ------------------------- */
+@media (max-width: 768px){
+  .hero-inner h1 { font-size: 1.6rem; }
+  .site-nav { display:none; }
+  .parallax { background-attachment: scroll; min-height: 48vh; }
+  .container { padding: 1.25rem; }
+}
+
+/* -------------------------
+   Small helpers
+   ------------------------- */
+.kv { color:var(--cfv-muted); font-size:0.95rem; }
+.badge {
+  display:inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(168,114,74,0.12);
+  color: var(--cfv-accent);
+  font-weight:700;
+  font-size:0.8rem;
+}
+
+/* Accessibility: focus states */
+a:focus, .btn:focus { outline: 3px solid rgba(168,114,74,0.18); outline-offset: 3px; }
+
+/* End of file */
